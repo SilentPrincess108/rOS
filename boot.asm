@@ -1,12 +1,11 @@
 ;booting once puts us in real mode: 16-bit mode that allows direct memory access   
 
 mov ah, 0x0e ;switches to teletype mode (bios video routine)
-mov al, "A"
+mov al, 65
 int 0x10 ;call bios interrupt for video routine
 
 loop:
-    inc al
-    cmp al, "Z" + 1
+    inc al, 91
     je exit
     int 0x10
     jmp loop
